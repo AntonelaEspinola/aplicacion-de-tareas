@@ -1,24 +1,23 @@
 const fs = require("fs");
 const tareas = JSON.parse(fs.readFileSync("./db/tareas.json", "utf-8"));
 module.exports = {
-    verCartel : function(mensaje){
-        console.log('***************');
-        console.log(mensaje);
-        console.log('***************');
-    },
-  agregarTarea: function (titulo, estado = "pendiente") {
-    let nuevaTarea = {
-      //con los parametros creo una nueva tarea
+  verCartel: function (mensaje) {                           //muestra un mensaje
+    console.log("***************");
+    console.log(mensaje);
+    console.log("***************");
+  },
+  agregarTarea: function (titulo, estado = "pendiente") {   //agrega una nueva tarea
+    let nuevaTarea = {//con los parametros creo una nueva tarea
       titulo,
       estado,
     };
     tareas.push(nuevaTarea); //agrego una nueva tarea!
-   this.guardarJson(tareas);
+    this.guardarJson(tareas);
+    this.verCartel("Tarea agregada!");
     this.listarTareas();
   },
-  listarTareas: function () {
-    tareas.forEach((tarea) => {
-      //lista las tareas, reemplaza al for
+  listarTareas: function () {       
+    tareas.forEach((tarea) => { //lista las tareas, reemplaza al for
       console.log(tarea);
     });
   },
@@ -29,25 +28,22 @@ module.exports = {
     );
     return console.log(tareasFiltradas);
   },
-  deshacer : function(){
-      tareas.pop();
-      this.guardarJson(tareas);
-      this.verCartel('Tarea borrada!')
-      this.listarTareas();
+  deshacer: function () {
+    tareas.pop();
+    this.guardarJson(tareas);
+    this.verCartel("Tarea borrada!");
+    this.listarTareas();
   },
-  guardarJson : function(){
+  guardarJson: function () {
     fs.writeFileSync("./db/tareas.json", JSON.stringify(tareas), "utf-8"); //escribo en el archivo json
-      
   },
-  cambiarEstado : function(estado, nuevoEstado){
-let tareasModificadas = tareas.map(tarea => {
-    if(tarea.estado === estado){
-    
-        tarea.estado = nuevoEstado
-    }
-    return tarea
-  
-})
-console.log(tareasModificadas);
-  }
+  cambiarEstado: function (estado, nuevoEstado) {   //cambia el estado de una tarea
+    let tareasModificadas = tareas.map((tarea) => {
+      if (tarea.estado === estado) {
+        tarea.estado = nuevoEstado;
+      }
+      return tarea;
+    });
+    console.log(tareasModificadas);
+  },
 };
