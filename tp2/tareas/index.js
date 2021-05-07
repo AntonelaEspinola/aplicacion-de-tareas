@@ -35,7 +35,7 @@ module.exports = {
     this.listarTareas();
   },
   guardarJson: function () {
-    fs.writeFileSync("./db/tareas.json", JSON.stringify(tareas), "utf-8"); //escribo en el archivo json
+    fs.writeFileSync("./db/tareas.json", JSON.stringify(tareas,null,2), "utf-8"); //escribo en el archivo json
   },
   cambiarEstado: function (estado, nuevoEstado) {   //cambia el estado de una tarea
     let tareasModificadas = tareas.map((tarea) => {

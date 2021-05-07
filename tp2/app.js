@@ -24,6 +24,10 @@ switch (comando) {
   case "cambiar":                         //cambia el estado de las tareas. Recibe un estado para buscar y lo cambia por el que se le asigne
     moduloTareas.cambiarEstado(process.argv[3], process.argv[4]);
     break;
+    case undefined: 
+    console.log('Atencion- Tienes que pasar una accion');
+    break;
   default:
+    console.log('No entiendo que quieres hacer')
     break;
 }

@@ -1,1 +1,18 @@
-[{"titulo":"filtrar con numeros","estado":"pendiente"},{"titulo":"Actualizar playground","estado":"en progreso"},{"titulo":"Tomar mate","estado":"Pendiente"}]
+[
+  {
+    "titulo": "filtrar con numeros",
+    "estado": "pendiente"
+  },
+  {
+    "titulo": "Actualizar playground",
+    "estado": "en progreso"
+  },
+  {
+    "titulo": "Tomar mate",
+    "estado": "Pendiente"
+  },
+  {
+    "titulo": "desayunar",
+    "estado": "pendiente"
+  }
+]
